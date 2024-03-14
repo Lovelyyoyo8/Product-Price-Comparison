@@ -47,8 +47,8 @@ def get_walmart_price():
 
 def save_to_csv(products_prices):
     try:
-        timestamp = time.strftime('%Y%m%d%H%M%S')
-        filename = f'tesla_news_{timestamp}.csv'
+         timestamp = time.strftime('%Y%m%d%H%M%S')
+        filename = f'fairlife_milk_prices_{timestamp}.csv'
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(['Title', 'Content'])
