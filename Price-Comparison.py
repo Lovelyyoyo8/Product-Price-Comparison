@@ -58,8 +58,8 @@ def save_to_csv(products_prices):
     except Exception as e:
         print(f"Error in save_to_csv: {e}")
 
-class TestTeslaNewsScraper(unittest.TestCase):
-    def test_get_tesla_news(self):
+class TestFairlifeMilkScraper(unittest.TestCase):
+    def test_get_walmart_prices(self):
         news_links = get_tesla_news()
         self.assertIsInstance(news_links, list)
         self.assertTrue(all(isinstance(link, str) for link in news_links))
