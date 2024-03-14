@@ -49,11 +49,11 @@ def save_to_csv(products_prices):
     try:
          timestamp = time.strftime('%Y%m%d%H%M%S')
         filename = f'fairlife_milk_prices_{timestamp}.csv'
-        with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        ith open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            writer.writerow(['Title', 'Content'])
-            for article in news_data:
-                writer.writerow([article['title'], article['content']])
+            writer.writerow(['Product', 'Price'])
+            for item in products_prices:
+                writer.writerow([item['product'], item['price']])
         print(f'Saved data to CSV file: {filename}')
     except Exception as e:
         print(f"Error in save_to_csv: {e}")
