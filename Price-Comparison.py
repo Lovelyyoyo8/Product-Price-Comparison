@@ -41,19 +41,6 @@ def get_walmart_price():
         print(f"Error in get_walmart_price: {e}")
         return []
 
-def parse_news_article(url):
-    try:
-        driver.get(url)
-        print(f'Opened the news article: {url}')
-
-        title = driver.find_element(By.CSS_SELECTOR, 'div.fullview-title').text
-        content = driver.find_element(By.CSS_SELECTOR, 'div.fullview-news-outer').text
-
-        return {'title': title, 'content': content}
-    except Exception as e:
-        print(f"Error in parse_news_article: {e}")
-        return {}
-
 def save_to_csv(news_data):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
