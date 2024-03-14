@@ -75,10 +75,10 @@ class TestFairlifeMilkScraper(unittest.TestCase):
         self.assertTrue(os.path.isfile('fairlife_milk_prices.csv'))
         print('Test for save_to_csv passed.')
 
-        with open('tesla_news.csv', mode='r', encoding='utf-8') as file:
+        with open('fairlife_milk_prices.csv', mode='r', encoding='utf-8') as file:
             reader = csv.reader(file)
             header = next(reader)
-            self.assertEqual(header, ['Title', 'Content'])
+            self.assertEqual(header, ['Product', 'Price'])
 
             row1 = next(reader)
             self.assertEqual(row1, ['Test Title 1', 'Test Content 1'])
