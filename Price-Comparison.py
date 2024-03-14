@@ -81,7 +81,7 @@ class TestFairlifeMilkScraper(unittest.TestCase):
             self.assertEqual(header, ['Product', 'Price'])
 
             row1 = next(reader)
-            self.assertEqual(row1, ['Test Title 1', 'Test Content 1'])
+            self.assertEqual(row1, ['Fairlife Milk 1', '$2.99'])
 
             row2 = next(reader)
             self.assertEqual(row2, ['Test Title 2', 'Test Content 2'])
