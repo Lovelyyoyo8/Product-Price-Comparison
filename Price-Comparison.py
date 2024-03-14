@@ -72,7 +72,7 @@ class TestFairlifeMilkScraper(unittest.TestCase):
         save_to_csv(test_data)
 
         import os
-        self.assertTrue(os.path.isfile('tesla_news.csv'))
+        self.assertTrue(os.path.isfile('fairlife_milk_prices.csv'))
         print('Test for save_to_csv passed.')
 
         with open('tesla_news.csv', mode='r', encoding='utf-8') as file:
