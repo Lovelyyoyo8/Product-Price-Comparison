@@ -65,19 +65,9 @@ class TestFairlifeMilkScraper(unittest.TestCase):
         self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_walmart_prices passed.')
 
-    def test_parse_news_article(self):
-        url = 'https://example.com/news_article'
-        news_data = parse_news_article(url)
-        self.assertIsInstance(news_data, dict)
-        self.assertIn('title', news_data)
-        self.assertIn('content', news_data)
-        self.assertIsInstance(news_data['title'], str)
-        self.assertIsInstance(news_data['content'], str)
-        print('Test for parse_news_article passed.')
-
     def test_save_to_csv(self):
-        test_data = [{'title': 'Test Title 1', 'content': 'Test Content 1'},
-                     {'title': 'Test Title 2', 'content': 'Test Content 2'}]
+        test_data = [{'product': 'Fairlife Milk 1', 'price': '$2.99'},
+                     {'product': 'Fairlife Milk 2', 'price': '$3.49'}]
 
         save_to_csv(test_data)
 
