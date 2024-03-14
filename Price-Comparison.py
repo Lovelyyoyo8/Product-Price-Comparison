@@ -60,10 +60,10 @@ def save_to_csv(products_prices):
 
 class TestFairlifeMilkScraper(unittest.TestCase):
     def test_get_walmart_prices(self):
-        news_links = get_tesla_news()
-        self.assertIsInstance(news_links, list)
-        self.assertTrue(all(isinstance(link, str) for link in news_links))
-        print('Test for get_tesla_news passed.')
+        product_prices = get_walmart_prices()
+        self.assertIsInstance(product_prices, list)
+        self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
+        print('Test for get_walmart_prices passed.')
 
     def test_parse_news_article(self):
         url = 'https://example.com/news_article'
