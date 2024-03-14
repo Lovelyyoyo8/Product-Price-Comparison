@@ -45,7 +45,7 @@ def get_walmart_price():
         print(f"Error in get_walmart_price: {e}")
         return []
 
-def save_to_csv(news_data):
+def save_to_csv(products_prices):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
         filename = f'tesla_news_{timestamp}.csv'
