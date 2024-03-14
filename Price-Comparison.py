@@ -30,13 +30,17 @@ def get_walmart_price():
 
         wait = WebDriverWait(driver, 10)
         # Wait for the search to load dynamically
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div:nth-child(1) > div > span > header > form > div > input')))
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')))
         print('Waited for search links to load dynamically.')
 
-        news_elements = driver.find_elements(By.CSS_SELECTOR, 'div.news-link-left a')
-        news_links = [element.get_attribute('href') for element in news_elements]
+        products = driver.find_elements(By.CSS_SELECTOR, 'div.product-title-link a')
+        prices = driver.find_elements(By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')
 
-        return walmart_links
+        product_prices = []
+        for product, price in zip(products, prices):
+            product_prices.append({'product': product.text, 'price': price.text})
+
+        return product_prices
     except Exception as e:
         print(f"Error in get_walmart_price: {e}")
         return []
