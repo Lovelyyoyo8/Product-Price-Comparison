@@ -93,8 +93,8 @@ def get_saveonfood_prices():
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'product')))
         print('Waited for search results to load dynamically.')
 
-        products = driver.find_elements(By.CSS_SELECTOR, 'div.product-title-link a')
-        prices = driver.find_elements(By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')
+        products = driver.find_elements(By.CLASS_NAME, 'product')
+        product_prices = []
 
         product_prices = []
         for product, price in zip(products, prices):
