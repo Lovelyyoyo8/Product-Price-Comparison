@@ -77,7 +77,7 @@ def get_superstore_prices():
 
 def get_saveonfood_prices():
     try:
-        driver.get('https://www.saveonfood.ca/en')
+        driver.get('https://www.saveonfoods.com/sm/pickup/rsid/1982/')
         print('Opened the Save On Food page.')
 
         search_box = driver.find_element(By.NAME, 'q')
