@@ -72,7 +72,7 @@ def get_superstore_prices():
 
         return product_prices
     except Exception as e:
-        print(f"Error in get_walmart_prices: {e}")
+        print(f"Error in get_superstore_prices: {e}")
         return []
 
 def get_saveonfood_prices():
