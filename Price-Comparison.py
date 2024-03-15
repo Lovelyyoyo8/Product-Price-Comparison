@@ -15,6 +15,7 @@ except Exception as e:
     print(f"Error initializing Chrome driver: {e}")
     exit()
 
+
 def get_walmart_prices():
     try:
         driver.get('https://www.walmart.ca/en')
@@ -45,6 +46,7 @@ def get_walmart_prices():
         print(f"Error in get_walmart_prices: {e}")
         return []
 
+
 def get_superstore_prices():
     try:
         driver.get('https://www.realcanadiansuperstore.ca/')
@@ -74,6 +76,7 @@ def get_superstore_prices():
     except Exception as e:
         print(f"Error in get_superstore_prices: {e}")
         return []
+
 
 def get_saveonfood_prices():
     try:
@@ -120,25 +123,28 @@ def save_to_csv(products_prices):
     except Exception as e:
         print(f"Error in save_to_csv: {e}")
 
+
 class TestFairlifeMilkScraper(unittest.TestCase):
     def test_get_walmart_prices(self):
         product_prices = get_walmart_prices()
         self.assertIsInstance(product_prices, list)
-        self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
+        self.assertTrue(
+            all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_walmart_prices passed.')
 
     def test_get_superstore_prices(self):
         product_prices = get_superstore_prices()
         self.assertIsInstance(product_prices, list)
-        self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
+        self.assertTrue(
+            all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_superstore_prices passed.')
 
     def test_get_saveonfood_prices(self):
         product_prices = get_saveonfood_prices()
         self.assertIsInstance(product_prices, list)
-        self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
+        self.assertTrue(
+            all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_saveonfood_prices passed.')
-    
 
     def test_save_to_csv(self):
         test_data = [{'product': 'Fairlife Milk 1', 'price': '$2.99'},
@@ -160,6 +166,7 @@ class TestFairlifeMilkScraper(unittest.TestCase):
 
             row2 = next(reader)
             self.assertEqual(row2, ['Fairlife Milk 2', '$3.49'])
+
 
 if __name__ == '__main__':
     try:
