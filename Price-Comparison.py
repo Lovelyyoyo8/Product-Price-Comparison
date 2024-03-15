@@ -50,7 +50,7 @@ def get_superstore_prices():
         driver.get('https://www.realcanadiansuperstore.ca/')
         print('Opened the Superstore page.')
 
-        search_box = driver.find_element(By.NAME, 'q')
+        search_box = driver.find_element(By.ID, 'search')
         search_box.send_keys('fairlife milk')
         print('Entered "fairlife milk" into the search box.')
 
