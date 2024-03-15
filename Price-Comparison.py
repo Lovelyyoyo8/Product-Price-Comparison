@@ -60,7 +60,7 @@ def get_superstore_prices():
 
         wait = WebDriverWait(driver, 10)
         # Wait for the search to load dynamically
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')))
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-details')))
         print('Waited for search results to load dynamically.')
 
         products = driver.find_elements(By.CSS_SELECTOR, 'div.product-title-link a')
