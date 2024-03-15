@@ -45,10 +45,10 @@ def get_walmart_prices():
         print(f"Error in get_walmart_prices: {e}")
         return []
 
-def get_walmart_prices():
+def get_superstore_prices():
     try:
-        driver.get('https://www.walmart.ca/en')
-        print('Opened the Walmart page.')
+        driver.get('https://www.superstore.ca/en')
+        print('Opened the Superstore page.')
 
         search_box = driver.find_element(By.NAME, 'q')
         search_box.send_keys('fairlife milk')
