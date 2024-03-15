@@ -80,7 +80,7 @@ def get_saveonfood_prices():
         driver.get('https://www.saveonfoods.com/sm/pickup/rsid/1982/')
         print('Opened the Save On Food page.')
 
-        search_box = driver.find_element(By.NAME, 'q')
+        search_box = driver.find_element(By.ID, 'header-search-input')
         search_box.send_keys('fairlife milk')
         print('Entered "fairlife milk" into the search box.')
 
