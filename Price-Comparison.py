@@ -96,13 +96,14 @@ def get_saveonfood_prices():
         products = driver.find_elements(By.CLASS_NAME, 'product')
         product_prices = []
 
-        product_prices = []
-        for product, price in zip(products, prices):
-            product_prices.append({'product': product.text, 'price': price.text})
+        for product in products:
+            product_name = product.find_element(By.CLASS_NAME, 'product__name').text
+            product_price = product.find_element(By.CLASS_NAME, 'price').text
+            product_prices.append({'product': product_name, 'price': product_price})
 
         return product_prices
     except Exception as e:
-        print(f"Error in get_walmart_prices: {e}")
+        print(f"Error in get_saveonfood_prices: {e}")
         return []
 
 
