@@ -47,7 +47,7 @@ def get_walmart_prices():
 
 def get_superstore_prices():
     try:
-        driver.get('https://www.superstore.ca/en')
+        driver.get('https://www.realcanadiansuperstore.ca/')
         print('Opened the Superstore page.')
 
         search_box = driver.find_element(By.NAME, 'q')
