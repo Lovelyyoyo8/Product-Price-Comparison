@@ -54,7 +54,7 @@ def get_superstore_prices():
         search_box.send_keys('fairlife milk')
         print('Entered "fairlife milk" into the search box.')
 
-        search_button = driver.find_element(By.XPATH, '//button[@data-automation-id="search-submit-btn"]')
+        search_button = driver.find_element(By.XPATH, '//button[@class="btn btn-search"]')
         search_button.click()
         print('Clicked the search button.')
 
