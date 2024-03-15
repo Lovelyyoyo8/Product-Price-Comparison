@@ -132,6 +132,12 @@ class TestFairlifeMilkScraper(unittest.TestCase):
         self.assertIsInstance(product_prices, list)
         self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_superstore_prices passed.')
+
+    def test_get_saveonfood_prices(self):
+        product_prices = get_saveonfood_prices()
+        self.assertIsInstance(product_prices, list)
+        self.assertTrue(all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
+        print('Test for get_saveonfood_prices passed.')
     
 
     def test_save_to_csv(self):
