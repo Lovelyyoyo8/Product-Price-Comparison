@@ -75,6 +75,37 @@ def get_walmart_prices():
         print(f"Error in get_walmart_prices: {e}")
         return []
 
+def get_walmart_prices():
+    try:
+        driver.get('https://www.walmart.ca/en')
+        print('Opened the Walmart page.')
+
+        search_box = driver.find_element(By.NAME, 'q')
+        search_box.send_keys('fairlife milk')
+        print('Entered "fairlife milk" into the search box.')
+
+        search_button = driver.find_element(By.XPATH, '//button[@data-automation-id="search-submit-btn"]')
+        search_button.click()
+        print('Clicked the search button.')
+
+        wait = WebDriverWait(driver, 10)
+        # Wait for the search to load dynamically
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')))
+        print('Waited for search results to load dynamically.')
+
+        products = driver.find_elements(By.CSS_SELECTOR, 'div.product-title-link a')
+        prices = driver.find_elements(By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')
+
+        product_prices = []
+        for product, price in zip(products, prices):
+            product_prices.append({'product': product.text, 'price': price.text})
+
+        return product_prices
+    except Exception as e:
+        print(f"Error in get_walmart_prices: {e}")
+        return []
+
+
 def save_to_csv(products_prices):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
