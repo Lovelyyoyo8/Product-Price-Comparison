@@ -149,7 +149,6 @@ class TestFairlifeMilkScraper(unittest.TestCase):
     def test_save_to_csv(self):
         test_data = [{'product': 'Fairlife Milk 1', 'price': '$2.99'},
                      {'product': 'Fairlife Milk 2', 'price': '$3.49'}]
-
         save_to_csv(test_data)
 
         import os
