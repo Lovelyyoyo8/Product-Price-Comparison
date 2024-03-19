@@ -151,6 +151,7 @@ class TestFairlifeMilkScraper(unittest.TestCase):
                      {'product': 'Fairlife Milk 2', 'price': '$3.49'}]
         save_to_csv(test_data)
 
+    
     import os
     self.assertTrue(os.path.isfile('fairlife_milk_prices.csv'))
     print('Test for save_to_csv passed.')
