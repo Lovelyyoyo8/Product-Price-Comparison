@@ -141,6 +141,12 @@ def get_saveonfood_prices(product_name):
 #         print(f"Error in search_product_in_store: {e}")
 #         return []
 
+product_input = input("Enter the product that you want to compare the price: ")
+walmart_prices = get_walmart_prices(product_input)
+superstore_prices = get_superstore_prices(product_input)
+saveonfood_prices = get_saveonfood_prices(product_input)
+
+
 def save_to_csv(products_prices):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
