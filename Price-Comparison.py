@@ -110,6 +110,37 @@ def get_saveonfood_prices():
         return []
 
 
+def search_product_in_store(store_url, product_name):
+    try:
+        # Initialize WebDriver
+        driver = webdriver.Chrome()  # You can change this to whatever browser you prefer
+        driver.get(store_url)
+        print(f'Opened the {store_url} page.')
+
+        search_box = driver.find_element(By.NAME, 'q')  # Adjust this according to the store's search box name or locator
+        search_box.send_keys(product_name)
+        print(f'Entered "{product_name}" into the search box.')
+
+        search_box.submit()
+        print('Submitted the search query.')
+
+        wait = WebDriverWait(driver, 10)
+        # Wait for the search to load dynamically
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')))
+        print('Waited for search results to load dynamically.')
+
+        products = driver.find_elements(By.CSS_SELECTOR, 'div.product-title-link a')
+        prices = driver.find_elements(By.CSS_SELECTOR, 'div.product-price > span.visuallyhidden')
+
+        product_prices = []
+        for product, price in zip(products, prices):
+            product_prices.append({'product': product.text, 'price': price.text})
+
+        return product_prices
+    except Exception as e:
+        print(f"Error in search_product_in_store: {e}")
+        return []
+
 def save_to_csv(products_prices):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
