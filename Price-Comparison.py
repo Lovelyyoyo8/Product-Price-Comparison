@@ -16,13 +16,13 @@ except Exception as e:
     exit()
 
 
-def get_walmart_prices():
+def get_walmart_prices(product_name):
     try:
         driver.get('https://www.walmart.ca/en')
         print('Opened the Walmart page.')
 
         search_box = driver.find_element(By.NAME, 'q')
-        search_box.send_keys('fairlife milk')
+        search_box.send_keys(product_name)
         print('Entered "fairlife milk" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@data-automation-id="search-submit-btn"]')
@@ -47,13 +47,13 @@ def get_walmart_prices():
         return []
 
 
-def get_superstore_prices():
+def get_superstore_prices(product_name):
     try:
         driver.get('https://www.realcanadiansuperstore.ca/')
         print('Opened the Superstore page.')
 
         search_box = driver.find_element(By.ID, 'search')
-        search_box.send_keys('fairlife milk')
+        search_box.send_keys(product_name)
         print('Entered "fairlife milk" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@class="btn btn-search"]')
@@ -78,13 +78,13 @@ def get_superstore_prices():
         return []
 
 
-def get_saveonfood_prices():
+def get_saveonfood_prices(product_name):
     try:
         driver.get('https://www.saveonfoods.com/sm/pickup/rsid/1982/')
         print('Opened the Save On Food page.')
 
         search_box = driver.find_element(By.ID, 'header-search-input')
-        search_box.send_keys('fairlife milk')
+        search_box.send_keys(product_name)
         print('Entered "fairlife milk" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@class="header-search-submit"]')
