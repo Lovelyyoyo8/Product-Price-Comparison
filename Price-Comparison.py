@@ -198,16 +198,16 @@ class TestProductScraper(unittest.TestCase):
     self.assertTrue(os.path.isfile(f'{test_product}_prices.csv'))
     print('Test for save_to_csv passed.')
 
-    with open('fairlife_milk_prices.csv', mode='r', encoding='utf-8') as file:
+    with open(f'{test_product}_prices.csv', mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
         header = next(reader)
         self.assertEqual(header, ['Product', 'Price'])
 
         row1 = next(reader)
-        self.assertEqual(row1, ['Fairlife Milk 1', '$2.99'])
+        self.assertEqual(row1, [f'{test_product} 1', '$2.99'])
 
         row2 = next(reader)
-        self.assertEqual(row2, ['Fairlife Milk 2', '$3.49'])
+        self.assertEqual(row2, [f'{test_product} 2', '$3.49'])
 
 
 if __name__ == '__main__':
