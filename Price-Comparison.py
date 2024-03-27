@@ -172,14 +172,16 @@ class TestProductScraper(unittest.TestCase):
         print('Test for get_walmart_prices passed.')
 
     def test_get_superstore_prices(self):
-        product_prices = get_superstore_prices()
+        product_name = "test product"
+        product_prices = get_superstore_prices(product_name)
         self.assertIsInstance(product_prices, list)
         self.assertTrue(
             all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
         print('Test for get_superstore_prices passed.')
 
     def test_get_saveonfood_prices(self):
-        product_prices = get_saveonfood_prices()
+        product_name = "test product"
+        product_prices = get_saveonfood_prices(product_name)
         self.assertIsInstance(product_prices, list)
         self.assertTrue(
             all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
