@@ -162,9 +162,10 @@ def save_to_csv(products_prices, product_name):
         print(f"Error in save_to_csv: {e}")
 
 
-class TestFairlifeMilkScraper(unittest.TestCase):
+class TestProductScraper(unittest.TestCase):
     def test_get_walmart_prices(self):
-        product_prices = get_walmart_prices()
+        product_name = "test product"
+        product_prices = get_walmart_prices(product_name)
         self.assertIsInstance(product_prices, list)
         self.assertTrue(
             all(isinstance(item, dict) and 'product' in item and 'price' in item for item in product_prices))
