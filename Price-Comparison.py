@@ -188,9 +188,14 @@ class TestProductScraper(unittest.TestCase):
         print('Test for get_saveonfood_prices passed.')
 
     def test_save_to_csv(self):
-        test_data = [{'product': 'Fairlife Milk 1', 'price': '$2.99'},
-                     {'product': 'Fairlife Milk 2', 'price': '$3.49'}]
-        save_to_csv(test_data)
+        test_product = "test product"
+        test_data = [{'product': f'{test_product} 1', 'price': '$2.99'},
+                     {'product': f'{test_product} 2', 'price': '$3.49'}]
+        save_to_csv(test_data, test_product)
+    
+        self.assertTrue(os.path.isfile(f'{test_product}_prices.csv'))
+        print('Test for save_to_csv passed.')
+
 
     
     import os
