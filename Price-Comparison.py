@@ -23,7 +23,7 @@ def get_walmart_prices(product_name):
 
         search_box = driver.find_element(By.NAME, 'q')
         search_box.send_keys(product_name)
-        print('Entered "fairlife milk" into the search box.')
+        print(f'Entered "{product_name}" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@data-automation-id="search-submit-btn"]')
         search_button.click()
@@ -54,7 +54,7 @@ def get_superstore_prices(product_name):
 
         search_box = driver.find_element(By.ID, 'search')
         search_box.send_keys(product_name)
-        print('Entered "fairlife milk" into the search box.')
+        print(f'Entered "{product_name}" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@class="btn btn-search"]')
         search_button.click()
@@ -85,7 +85,7 @@ def get_saveonfood_prices(product_name):
 
         search_box = driver.find_element(By.ID, 'header-search-input')
         search_box.send_keys(product_name)
-        print('Entered "fairlife milk" into the search box.')
+        print(f'Entered "{product_name}" into the search box.')
 
         search_button = driver.find_element(By.XPATH, '//button[@class="header-search-submit"]')
         search_button.click()
