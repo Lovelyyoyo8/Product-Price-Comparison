@@ -110,6 +110,7 @@ def get_saveonfood_prices(product_name):
         return []
 
 
+# tried to use input stores, but it's harder so leave it now.
 # def search_product_in_store(store_url, product_name):
 #     try:
 #         # Initialize WebDriver
@@ -147,10 +148,10 @@ superstore_prices = get_superstore_prices(product_input)
 saveonfood_prices = get_saveonfood_prices(product_input)
 
 
-def save_to_csv(products_prices):
+def save_to_csv(products_prices, product_name):
     try:
         timestamp = time.strftime('%Y%m%d%H%M%S')
-        filename = f'fairlife_milk_prices_{timestamp}.csv'
+        filename = f'{product_name}_prices_{timestamp}.csv'
         with open(filename, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(['Product', 'Price'])
