@@ -5,4 +5,4 @@ In the beginning, the project was about comparing FairLife milk price in Walmart
 This idea was from my Cybersecurity Bootcamp classmate, Cona. He wondered if we could use Python to compare a product's price in different stores.
 At that moment, I knew Selenium can scrape the price so I started this project. 
 Now, I replaced the milk with an input product.
-I tried replacing stores by input stores, but it's harder which may need to search for the store first and not sure if the store's website can be searched. 
+I tried replacing stores by input stores, but it's harder which may need to search for the store first and not sure if the store's website can be searched.
